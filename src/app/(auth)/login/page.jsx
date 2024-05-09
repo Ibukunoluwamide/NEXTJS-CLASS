@@ -1,4 +1,5 @@
 "use client"
+import axios from 'axios'
 import React, { useState } from 'react'
 
 const Login = () => {
@@ -9,6 +10,12 @@ const Login = () => {
   const handleSubmit = (e)=>{
     e.preventDefault()
     console.log(user)
+    axios.post(`api/user/login`, user)
+    .then((result) => {
+      console.log(result);
+    }).catch((err) => {
+      console.log(err);
+    });
   }
   return (
     <>
